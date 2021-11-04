@@ -7,10 +7,10 @@ npm init
   entry point : (index.js) servidor.js
   
   crear un nuevo archivo
-  se creo con touch nombre.js
+   se creo con touch nombre.js
   
   isntalar paquetes
-  npm install express --save
-  npm install mongoose --save
+    npm install express --save
+    npm install mongoose --save
 
 

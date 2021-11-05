@@ -1,4 +1,4 @@
-const { Router } = require('express');
+
 const express= require('express');
 const  Mongoose  = require('mongoose');
 const UsuarioSchema= require("./Modelos/usuario.js");
@@ -13,10 +13,22 @@ route.get("/",(req, res) =>{
     res.send("Este es el inicio de mi primera API");
 });
 
+//gett
+route.get("/usuario",(req, res)=>{
+    UsuarioSchema.find(function(err,datos){
+     if(err){
+          console.log("Erros leyendo los Usuarios");
+     }else{
+        res.send(datos);
+        }
+
+    }) 
+});
+
 //Insertar
 
 route.post("/usuario",(req, res)=>{
-    let nuevousuario = new usuarioSchema({
+    let nuevousuario = new UsuarioSchema({
 
         idusuario:req.body.id,
         nombreusuario:req.body.nombre,

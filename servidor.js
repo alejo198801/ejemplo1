@@ -1,6 +1,7 @@
 
 const express= require('express');
 const  Mongoose  = require('mongoose');
+const usuario = require('./Modelos/usuario.js');
 const UsuarioSchema= require("./Modelos/usuario.js");
 
 const app= express();
@@ -29,11 +30,16 @@ route.get("/usuario",(req, res)=>{
 
 route.post("/usuario",(req, res)=>{
     let nuevousuario = new UsuarioSchema({
-
-        idusuario:req.body.id,
+        tipo_documento:req.body.tipo,
+        idusuario:req.body.numero,
         nombreusuario:req.body.nombre,
-        telefonousuario:req.body.telefono,
-        ciudadusuario:req.body.ciudad
+        apellidousuario:req.body.apellido,
+        direccion_usuario:req.body.direccion,
+        correo_usuario:req.body.correo,
+        telefono_usuario:req.body.telefono,
+        celular_usuario:req.body.celular,
+        web_usuario:req.body.web,
+        perfil_usuario:req.body.perfil,        
 
     });
     nuevousuario.save(function(err,datos){
@@ -45,6 +51,11 @@ route.post("/usuario",(req, res)=>{
 
 })
 
+//actualizar
+
+
+
+  
 Mongoose.connect("mongodb+srv://prog_web:kokoro123@clusterproweb.nkgnx.mongodb.net/ejemplo1DB?retryWrites=true&w=majority");
 app.use(route);
 app.listen(3000, ()=>{

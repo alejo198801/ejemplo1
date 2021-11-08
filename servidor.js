@@ -52,7 +52,27 @@ route.post("/usuario",(req, res)=>{
 })
 
 //actualizar
+exports.updateUsuarioSchema=function(req, res){
+    UsuarioSchema.findById(req.params.id,function(err,UsuarioSchema){
 
+        tipo_documento:req.body.tipo;
+        idusuario:req.body.numero;
+        nombreusuario:req.body.nombre;
+        apellidousuario:req.body.apellido;
+        direccion_usuario:req.body.direccion;
+        correo_usuario:req.body.correo;
+        telefono_usuario:req.body.telefono;
+        celular_usuario:req.body.celular;
+        web_usuario:req.body.web;
+        perfil_usuario:req.body.perfil;
+
+        UsuarioSchema.save(function(err){
+            if(err) return res.status(500).send(err.message);
+            res.status(200).json(UsuarioSchema);
+        
+        });
+    });
+};
 
 
   
